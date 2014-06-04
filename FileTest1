@@ -3,6 +3,6 @@
 main()
 {
     int count;
-    for (count=1;count<6;count++)
+    for (count=1;count<7;count++);
     printf("hello, world\n");
 }
