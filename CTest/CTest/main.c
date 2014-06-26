@@ -7,47 +7,51 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 //bool ProcessingRequest (char* )
 
 
-void main()
+int main()
 {
-    int n, q, mp[106],i,j;
-    char* t, Requests[105];
-    scanf ("%d,%d",n,q);
-    for (i = 0; i<q; i++)
+    int n, q, mp[106],i,j,firstmp,secondmp,tempconst;
+    char requesttype;
+    //char *Requests[105];
+    scanf ("%d %d",&n, &q);
+    /*for (i = 0; i<q; i++)
     {
-        Requests[i] = (char*) malloc (5*sizeof(char));
-        scanf ("%s",t);
-        Requests[i] = t;
-    }
+        Requests[i] = (char*) malloc (5 * sizeof(char));
+        scanf ("%[5]", Requests[i]);
+    }*/
     for (i=0; i<n; i++)
     {
         mp[i] = i;
     }
-    for (i=0;i<q;i++)
+    for (i=0; i<q; i++)
     {
-        if (Requests[i][1] == 'U')
+        getchar();
+        scanf ("%c %d %d",&requesttype, &firstmp, &secondmp);
+        if (requesttype == 'U')
         {
-            if (Requests[i][3] == Requests[i][5])
+            if (mp[firstmp] == mp[secondmp])
             {
                 printf("BORE\n");
             }
             else
             {
-                printf("NEWS!\n");
+                printf ("NEWS!\n");
+                tempconst = mp[secondmp];
                 for (j=0; j<n; j++)
                 {
-                    if (mp[j] == Requests[i][5])
+                    if (mp[j] == tempconst)
                     {
-                        mp[j] = Requests[i][3];
+                        mp[j] = mp[firstmp];
                     }
                 }
             }
         }
         else
         {
-            if (Requests[i][3] == Requests[i][5])
+            if (mp[firstmp] == mp[secondmp])
             {
                 printf("MUSIC\n");
             }
