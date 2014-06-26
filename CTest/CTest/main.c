@@ -8,7 +8,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-//bool ProcessingRequest (char* )
 
 
 int main()
