@@ -14,21 +14,17 @@ int main()
 {
     int n, q, mp[106],i,j,firstmp,secondmp,tempconst;
     char requesttype;
-    //char *Requests[105];
+    FILE *requestlist;
     scanf ("%d %d",&n, &q);
-    /*for (i = 0; i<q; i++)
-    {
-        Requests[i] = (char*) malloc (5 * sizeof(char));
-        scanf ("%[5]", Requests[i]);
-    }*/
     for (i=0; i<n; i++)
     {
         mp[i] = i;
     }
+    requestlist = fopen ("cd ~Work/Alexx/testcase.txt", "r");
     for (i=0; i<q; i++)
     {
         getchar();
-        scanf ("%c %d %d",&requesttype, &firstmp, &secondmp);
+        fscanf (requestlist, "%c %d %d",&requesttype, &firstmp, &secondmp);
         if (requesttype == 'U')
         {
             if (mp[firstmp] == mp[secondmp])
@@ -60,5 +56,7 @@ int main()
             }
         }
     }
+    fclose (requestlist);
+    return 0;
 }
 
